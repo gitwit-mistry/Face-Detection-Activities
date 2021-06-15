@@ -29,7 +29,6 @@ def crop_image(img):
     offset = 10
     face_img = img.copy()
     face_rects = face_cascade.detectMultiScale(face_img,1.1,5)
-    print(face_rects)
 
     if face_rects != ():
         for (x,y,w,h) in face_rects:
@@ -53,8 +52,7 @@ while True:
         label, error = model.predict(np.asarray(cropped_image))
         print(label,error)
 
-        if label == 1 and error < 50:
-            print('Inside P')
+        if label == 0 and error < 55:
             counter_p += 1
             text = "Prathamesh Detected!"
             fcolor = (0,255,0)
@@ -63,7 +61,7 @@ while True:
                 send_mail("Prathamesh Mistry")
                 break
 
-        elif label == 0 and error < 50:
+        elif label == 1 and error < 55:
             text = "Aditya Detected!"
             fcolor = (0,255,0)
             counter_a += 1
