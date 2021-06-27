@@ -12,7 +12,7 @@ model.read("face_detector_2_faces.yml")
 def send_mail(name):
 
     EmailAdd = "ml.prathamesh.master@gmail.com"
-    Pass = "lucifer0118"
+    Pass = "########"
 
     msg = EmailMessage()
     msg['Subject'] = "Access Notification"
